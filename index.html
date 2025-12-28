@@ -221,141 +221,7 @@
             box-shadow: 0 10px 25px rgba(255,255,255,0.2);
         }
 
-        /* Projects Section */
-        .projects {
-            min-height: 100vh;
-            padding: 100px 20px;
-            background: #000;
-        }
-
-        .projects h1 {
-            font-size: 4rem;
-            text-align: center;
-            margin-bottom: 60px;
-            background: linear-gradient(to right, #fff, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .projects-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            padding: 0 20px;
-        }
-
-        .project-card {
-            background: #1a1a1a;
-            border: 2px solid #333;
-            padding: 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: #fff;
-            box-shadow: 0 15px 40px rgba(255,255,255,0.1);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-        }
-
-        .project-content {
-            padding: 30px;
-        }
-
-        .project-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: #ff4444;
-        }
-
-        .project-card h4 {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .project-card p {
-            color: #aaa;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 15px;
-            color: #ff4444;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Project Gallery */
-        .project-gallery {
-            width: 100%;
-            margin-top: 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-image:hover {
-            transform: scale(1.05);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 20px;
-            background: #0a0a0a;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-
-        .contact-info a {
-            color: #ff4444;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
+        /* Remove projects section styles */
 
         /* Lightbox for full-size images */
         .lightbox {
@@ -406,7 +272,7 @@
                 font-size: 2rem;
                 margin-top: -1.5rem;
             }
-            .about h1, .projects h1 {
+            .about h1 {
                 font-size: 2.5rem;
             }
             .about p {
@@ -418,9 +284,6 @@
             .hero-photo {
                 width: 200px;
                 height: 250px;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr;
             }
             .photo-collage {
                 opacity: 0.3;
@@ -464,106 +327,10 @@
             <p>I'm choosing a path at the intersection of engineering and medicine, but my curiosity constantly pushes me to explore far beyond it.</p>
             
             <div class="button-group">
-                <button class="btn" onclick="scrollToProjects()">Projects</button>
-                <a class="btn" href="#" target="_blank">Resume</a>
+                <a class="btn" href="projects.html">Projects</a>
+                <a class="btn" href="resume.pdf" target="_blank">Resume</a>
                 <a class="btn" href="https://www.linkedin.com/in/elmaz-abliazova/" target="_blank">LinkedIn</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <h1>Projects</h1>
-        <div class="projects-grid">
-            <!-- Emergency Stretcher -->
-            <div class="project-card">
-                <img src="stretcher.jpg" alt="Emergency Stretcher CAD" class="project-image">
-                <div class="project-content">
-                    <h3>Foldable, Lightweight Emergency Stretcher</h3>
-                    <p>Developed a portable emergency stretcher designed for war zones and destruction areas. The design is mainly focused on optimizing portability and light weight.</p>
-                    <h4>Structurally Optimized Crossbars</h4>
-                    <p>Performed topological analysis and redesign to create crossbars that minimize weight while maintaining high strength and rigidity under patient load.</p>
-                    <h4>Telescoping Frame With Locking Pins</h4>
-                    <p>Engineered a compact, extendable mechanism that reduces overall storage size. Integrated secure mechanical locking pins to ensure stability during transport and enable quick assembly.</p>
-                    <p style="margin-top: 20px; font-style: italic; color: #888;">Group Project for Mechanical Manufacturing Class</p>
-                </div>
-            </div>
-
-            <!-- Vaccine Carrier -->
-            <div class="project-card">
-                <img src="vaccine-carrier.jpg" alt="Vaccine Carrier Prototype" class="project-image">
-                <div class="project-content">
-                    <h3>Redesigned Vaccine Carrier</h3>
-                    <p>Minimizing Cold Chain Disruption in Rural Uganda - Global Health Design Collaborative (Design Team)</p>
-                    <h4>Workstation</h4>
-                    <p>Designed inserted vial holders and dedicated workstation zones for vaccine preparation and administration. These features improved organization and supported standardized field procedures.</p>
-                    <h4>CAD Modeling</h4>
-                    <p>Created detailed 3D models and assemblies in SolidWorks to guide fabrication. Design iterations were informed by manufacturability and field usability constraints.</p>
-                    <h4>Thermal Performance Analysis</h4>
-                    <p>Conducted thermal analysis and experimental testing to compare insulation performance across multiple prototype iterations. Collected temperature data to evaluate design improvements.</p>
-                </div>
-            </div>
-
-            <!-- Gratnells Storage -->
-            <div class="project-card">
-                <img src="gratnells.jpg" alt="Gratnells Storage System" class="project-image">
-                <div class="project-content">
-                    <h3>Custom Gratnells Bin Storage System</h3>
-                    <p>Fabricated a Gratnells bin storage unit as part of a summer project for Sears think[box]. The goal was to create a space-efficient solution for organizing tools and materials within the makerspace.</p>
-                    <h4>VCarve</h4>
-                    <p>Created 2D layouts and toolpaths using VCarve, optimizing material usage and ensuring clean CNC machinability.</p>
-                    <h4>CNC Fabrication</h4>
-                    <p>Operated the Laguna CNC router to cut all parts, selecting appropriate feeds, speeds, and tooling for plywood panels.</p>
-                    <h4>Wood Shop Post-Processing</h4>
-                    <p>Performed sanding and finishing in the wood shop to ensure a clean final aesthetic.</p>
-                </div>
-            </div>
-
-            <!-- Bioplastic -->
-            <div class="project-card">
-                <img src="bioplastic.jpg" alt="Bioplastic Workshop" class="project-image">
-                <div class="project-content">
-                    <h3>Biodesign Club - Fully Biodegradable Plastic</h3>
-                    <h4>Agar-Agar Bioplastics</h4>
-                    <p>Led fabrication of fully biodegradable bioplastics using agar-agar and natural additives. Conducted material testing to assess water solubility and degradation behavior.</p>
-                    <h4>Fruit Peel Bioleather</h4>
-                    <p>Explored alternative biomaterials, including fruit peel–derived bioleather. Investigated their mechanical properties and feasibility for product design.</p>
-                </div>
-            </div>
-
-            <!-- Personal Projects Collection -->
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Personal Creative Projects</h3>
-                    
-                    <h4>Name Tag</h4>
-                    <img src="nametag.jpg" alt="Laser Cut Name Tag" class="gallery-image" style="width: 100%; height: 250px; object-fit: cover; margin: 15px 0;">
-                    <p>Custom Design in Adobe Illustrator + Epilog Laser cutter</p>
-                    
-                    <h4 style="margin-top: 30px;">Acrylic Lamp</h4>
-                    <img src="acrylic-lamp.jpg" alt="Acrylic Lamp" class="gallery-image" style="width: 100%; height: 250px; object-fit: cover; margin: 15px 0;">
-                    <p>CorelDraw Design + Epilog Laser cutter and simple circuit</p>
-                    
-                    <h4 style="margin-top: 30px;">Howl's Moving Castle Derby Car</h4>
-                    <img src="derby-car.jpg" alt="Howl's Moving Castle Derby Car" class="gallery-image" style="width: 100%; height: 250px; object-fit: cover; margin: 15px 0;">
-                    <p>3D Processing + 3D Printing</p>
-                    
-                    <h4 style="margin-top: 30px;">3D Printed Lamp</h4>
-                    <img src="3d-lamp.jpg" alt="3D Printed Lamp" class="gallery-image" style="width: 100%; height: 250px; object-fit: cover; margin: 15px 0;">
-                    <p>3D Processing + 3D Printing</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-        <h2>Thank you for viewing this portfolio!</h2>
-        <div class="contact-info">
-            <p>📞 (216) 303-2868</p>
-            <p>✉️ <a href="mailto:elmaz.abliazova@gmail.com">elmaz.abliazova@gmail.com</a></p>
-            <p>✉️ <a href="mailto:exa349@case.edu">exa349@case.edu</a></p>
-            <p>🔗 <a href="https://www.linkedin.com/in/elmaz-abliazova/" target="_blank">LinkedIn Profile</a></p>
         </div>
     </section>
 
@@ -576,12 +343,6 @@
     <script>
         function scrollToAbout() {
             document.getElementById('about').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-
-        function scrollToProjects() {
-            document.getElementById('projects').scrollIntoView({ 
                 behavior: 'smooth' 
             });
         }
@@ -637,16 +398,6 @@
             document.getElementById('lightbox').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
-
-        // Add click handlers to all project images
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.project-image, .gallery-image').forEach(img => {
-                img.style.cursor = 'pointer';
-                img.addEventListener('click', function() {
-                    openLightbox(this.src);
-                });
-            });
-        });
 
         // Close lightbox on ESC key
         document.addEventListener('keydown', function(e) {
