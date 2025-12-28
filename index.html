@@ -33,6 +33,7 @@
             text-align: center;
             z-index: 2;
             position: relative;
+            margin-top: 150px;
         }
 
         .portfolio-text {
@@ -55,13 +56,11 @@
         /* Photo Collage */
         .photo-collage {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             z-index: 1;
-            pointer-events: none;
         }
 
         .hero-photo {
@@ -71,29 +70,36 @@
             object-fit: cover;
             border: 8px solid #fff;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
+            transition: box-shadow 0.3s ease;
+            cursor: move;
+            pointer-events: auto;
         }
 
         .hero-photo:hover {
-            transform: scale(1.05) !important;
+            box-shadow: 0 25px 70px rgba(255,255,255,0.3);
+        }
+
+        .hero-photo.dragging {
+            opacity: 0.7;
+            cursor: grabbing;
         }
 
         .photo-1 {
-            top: 15%;
-            left: 15%;
+            top: 10%;
+            left: 10%;
             transform: rotate(-8deg);
         }
 
         .photo-2 {
-            top: 25%;
-            right: 15%;
+            top: 15%;
+            right: 12%;
             transform: rotate(5deg);
         }
 
         .photo-3 {
-            bottom: 15%;
-            left: 20%;
-            transform: rotate(3deg);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-3deg);
         }
 
         .icons {
@@ -351,6 +357,46 @@
             text-decoration: underline;
         }
 
+        /* Lightbox for full-size images */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            box-shadow: 0 0 50px rgba(255,255,255,0.3);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 3rem;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 300;
+        }
+
+        .lightbox-close:hover {
+            color: #ff4444;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .portfolio-text {
@@ -392,7 +438,10 @@
         
         <div class="photo-collage">
             <!-- Note: Replace these src values with your actual image paths when uploading to GitHub -->
-            <img src="hero-photo.jpg" alt="Elmaz in the city" class="hero-photo photo-1">
+            <!-- Add hero-photo-2.jpg and hero-photo-3.jpg to your folder -->
+            <img src="hero-photo.jpg" alt="Elmaz in the city" class="hero-photo photo-1" draggable="true">
+            <img src="hero-photo-2.jpg" alt="Elmaz photo 2" class="hero-photo photo-2" draggable="true">
+            <img src="hero-photo-3.jpg" alt="Elmaz photo 3" class="hero-photo photo-3" draggable="true">
         </div>
         
         <div class="hero-content">
@@ -416,7 +465,7 @@
             
             <div class="button-group">
                 <button class="btn" onclick="scrollToProjects()">Projects</button>
-<a class="btn" href="resume.pdf" target="_blank">Resume</a>
+                <a class="btn" href="#" target="_blank">Resume</a>
                 <a class="btn" href="https://www.linkedin.com/in/elmaz-abliazova/" target="_blank">LinkedIn</a>
             </div>
         </div>
@@ -518,6 +567,12 @@
         </div>
     </section>
 
+    <!-- Lightbox for full-size images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
     <script>
         function scrollToAbout() {
             document.getElementById('about').scrollIntoView({ 
@@ -530,6 +585,75 @@
                 behavior: 'smooth' 
             });
         }
+
+        // Draggable photos functionality
+        let draggedElement = null;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        document.querySelectorAll('.hero-photo').forEach(photo => {
+            photo.addEventListener('mousedown', function(e) {
+                draggedElement = this;
+                draggedElement.classList.add('dragging');
+                
+                const rect = draggedElement.getBoundingClientRect();
+                offsetX = e.clientX - rect.left;
+                offsetY = e.clientY - rect.top;
+                
+                draggedElement.style.zIndex = 1000;
+            });
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (draggedElement) {
+                const container = document.querySelector('.photo-collage');
+                const containerRect = container.getBoundingClientRect();
+                
+                let newX = e.clientX - containerRect.left - offsetX;
+                let newY = e.clientY - containerRect.top - offsetY;
+                
+                draggedElement.style.left = newX + 'px';
+                draggedElement.style.top = newY + 'px';
+                draggedElement.style.right = 'auto';
+                draggedElement.style.bottom = 'auto';
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            if (draggedElement) {
+                draggedElement.classList.remove('dragging');
+                draggedElement = null;
+            }
+        });
+
+        // Lightbox functionality for project images
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Add click handlers to all project images
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.project-image, .gallery-image').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    openLightbox(this.src);
+                });
+            });
+        });
+
+        // Close lightbox on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
 
         // Add parallax effect to hero icons
         document.addEventListener('mousemove', (e) => {
@@ -544,5 +668,4 @@
         });
     </script>
 </body>
-
 </html>
