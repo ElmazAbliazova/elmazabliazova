@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodegradable Bioplastics - Elmaz Abliazova</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            padding: 15px 30px;
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .back-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .project-detail {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            color: #ff4444;
+            margin-bottom: 20px;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #aaa;
+            margin-bottom: 50px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            margin-bottom: 50px;
+            border: 3px solid #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .main-image:hover {
+            border-color: #fff;
+            transform: scale(1.01);
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .content-section p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        /* Instagram Link Button */
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 40px;
+            margin-top: 30px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(188, 24, 136, 0.4);
+        }
+
+        .instagram-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(188, 24, 136, 0.6);
+        }
+
+        .instagram-icon {
+            font-size: 2rem;
+        }
+
+        .club-section {
+            background: #1a1a1a;
+            padding: 40px;
+            border: 2px solid #333;
+            margin: 50px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .club-section:hover {
+            border-color: #bc1888;
+        }
+
+        .club-section h2 {
+            color: #ff4444;
+            margin-bottom: 20px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 3rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .lightbox-close:hover {
+            color: #ff4444;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+            .main-image {
+                height: 400px;
+            }
+            .instagram-link {
+                font-size: 1.1rem;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="projects.html" class="back-btn">← Back to Projects</a>
+
+    <div class="project-detail">
+        <h1 class="project-title">Biodesign Club - Fully Biodegradable Plastic</h1>
+        <p class="project-subtitle">Sustainable Materials Research Project</p>
+
+        <img src="bioplastic.jpg" alt="Bioplastic Workshop" class="main-image" onclick="openLightbox(this.src)">
+
+        <div class="content-section">
+            <h2>Agar-Agar Bioplastics</h2>
+            <p>Led fabrication of fully biodegradable bioplastics using agar-agar and natural additives. Conducted material testing to assess water solubility and degradation behavior.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Fruit Peel Bioleather</h2>
+            <p>Explored alternative biomaterials, including fruit peel–derived bioleather. Investigated their mechanical properties and feasibility for product design.</p>
+        </div>
+
+        <!-- Biodesign Club Instagram Section -->
+        <div class="club-section">
+            <h2>Follow Biodesign Club</h2>
+            <p>Check out more amazing sustainable design projects and join our community!</p>
+            <a href="https://www.instagram.com/cwru_biodesign/" target="_blank" class="instagram-link">
+                <span class="instagram-icon">📷</span>
+                @cwru_biodesign on Instagram
+            </a>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
