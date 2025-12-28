@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Carrier - Elmaz Abliazova</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            padding: 15px 30px;
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .back-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .project-detail {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            color: #ff4444;
+            margin-bottom: 20px;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #aaa;
+            margin-bottom: 50px;
+        }
+
+        /* Image Collage */
+        .image-collage {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .collage-image {
+            position: absolute;
+            border: 5px solid #fff;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            object-fit: cover;
+        }
+
+        .collage-image:hover {
+            transform: scale(1.05) !important;
+            z-index: 10 !important;
+            box-shadow: 0 20px 50px rgba(255,255,255,0.3);
+        }
+
+        .collage-img-1 {
+            width: 550px;
+            height: 420px;
+            top: 5%;
+            left: 8%;
+            transform: rotate(-4deg);
+            z-index: 4;
+        }
+
+        .collage-img-2 {
+            width: 480px;
+            height: 370px;
+            top: 15%;
+            right: 5%;
+            transform: rotate(6deg);
+            z-index: 3;
+        }
+
+        .collage-img-3 {
+            width: 420px;
+            height: 340px;
+            bottom: 20%;
+            left: 25%;
+            transform: rotate(-5deg);
+            z-index: 2;
+        }
+
+        .collage-img-4 {
+            width: 400px;
+            height: 320px;
+            bottom: 5%;
+            right: 15%;
+            transform: rotate(7deg);
+            z-index: 1;
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .content-section p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 3rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .lightbox-close:hover {
+            color: #ff4444;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+            .image-collage {
+                height: 600px;
+            }
+            .collage-img-1 {
+                width: 280px;
+                height: 220px;
+            }
+            .collage-img-2 {
+                width: 250px;
+                height: 200px;
+            }
+            .collage-img-3 {
+                width: 230px;
+                height: 180px;
+            }
+            .collage-img-4 {
+                width: 220px;
+                height: 170px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="projects.html" class="back-btn">← Back to Projects</a>
+
+    <div class="project-detail">
+        <h1 class="project-title">Redesigned Vaccine Carrier</h1>
+        <p class="project-subtitle">Minimizing Cold Chain Disruption in Rural Uganda - Global Health Design Collaborative (Design Team)</p>
+
+        <!-- Image Collage -->
+        <div class="image-collage">
+            <img src="vaccine-carrier.jpg" alt="Vaccine Carrier Main" class="collage-image collage-img-1" onclick="openLightbox(this.src)">
+            <img src="vaccine-carrier-2.jpg" alt="Vaccine Carrier Detail" class="collage-image collage-img-2" onclick="openLightbox(this.src)">
+            <img src="vaccine-carrier-3.jpg" alt="Vaccine Carrier Testing" class="collage-image collage-img-3" onclick="openLightbox(this.src)">
+            <img src="vaccine-carrier-4.jpg" alt="Vaccine Carrier Assembly" class="collage-image collage-img-4" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="content-section">
+            <h2>Project Overview</h2>
+            <p>Redesigned vaccine carrier to minimize cold chain disruption in rural Uganda. The project focused on maintaining vaccine efficacy during transport and storage in challenging field conditions.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Workstation Design</h2>
+            <p>Designed inserted vial holders and dedicated workstation zones for vaccine preparation and administration. These features improved organization and supported standardized field procedures.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>CAD Modeling</h2>
+            <p>Created detailed 3D models and assemblies in SolidWorks to guide fabrication. Design iterations were informed by manufacturability and field usability constraints.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Thermal Performance Analysis</h2>
+            <p>Conducted thermal analysis and experimental testing to compare insulation performance across multiple prototype iterations. Collected temperature data to evaluate design improvements.</p>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
